@@ -1,38 +1,13 @@
-# create-svelte
+## Reproduction
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+1. Clone and `pnpm install`
+1. Run: `pnpm eslint src/routes/+page.svelte`
 
-## Creating a project
+Expected: We should get no eslint errors.
+Actual: We get two eslint errors. Error message:
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
 ```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+src/routes/+page.svelte
+   7:20  error  Unsafe member access .url on an `any` value       @typescript-eslint/no-unsafe-member-access
+  11:8   error  Unsafe member access .greeting on an `any` value  @typescript-eslint/no-unsafe-member-access
 ```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
